@@ -39,8 +39,7 @@ export function ActionExecuting(actions: ActionType | ActionType[]) {
             !!Object.values(self[propertyActionState]).find(
               ac => ac === ActionStatus.Dispatched
             )
-        ),
-        tap(c => console.log(c))
+        )
       );
     };
     if (delete target[name]) {
