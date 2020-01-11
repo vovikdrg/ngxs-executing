@@ -1,0 +1,4 @@
+<div>Animals fed: {{ (zoo$ | async).feed }}</div>
+<div>Animals count: {{ (zoo$ | async).count }}</div>
+<div *ngIf="zooInProgress$ | async">Zookeepers are busy</div>
+<button (click)="dispatchEvents()">Send events</button>
