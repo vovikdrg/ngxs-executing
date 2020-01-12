@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { NgxsModule } from "@ngxs/store";
 import { AppComponent } from "./app.component";
 import { ZooState } from "./state/state";
-import { ActionFactoryFactory } from "./decorator/actionExecuting";
+import { ActionExecutingFactory } from "./decorator/actionExecuting";
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,5 +12,5 @@ import { ActionFactoryFactory } from "./decorator/actionExecuting";
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(actionFactoryFactory: ActionFactoryFactory) {}
+  constructor(actionFactoryFactory: ActionExecutingFactory) {}
 }

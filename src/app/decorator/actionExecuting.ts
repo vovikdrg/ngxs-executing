@@ -4,11 +4,11 @@ import { filter, map, tap } from "rxjs/operators";
 import { ActionContext, ActionStatus } from "@ngxs/store/src/actions-stream";
 
 @Injectable({ providedIn: "root" })
-export class ActionFactoryFactory {
+export class ActionExecutingFactory {
   static actions: Actions | undefined = undefined;
 
   constructor(actions: Actions) {
-    ActionFactoryFactory.actions = actions;
+    ActionExecutingFactory.actions = actions;
   }
 }
 
@@ -25,7 +25,7 @@ export function ActionExecuting(actions: ActionType | ActionType[]) {
         return filterMap;
       }, new Map<string, boolean>());
 
-      return ActionFactoryFactory.actions.pipe(
+      return ActionExecutingFactory.actions.pipe(
         filter((ctx: ActionContext) => {
           return allowedTypes[getActionTypeFromInstance(ctx.action)];
         }),
